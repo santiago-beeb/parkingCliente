@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/parkingCliente/static/css/main.c3e4631f.css",
-    "main.js": "/parkingCliente/static/js/main.dcc7112d.js",
+    "main.css": "/parkingCliente/static/css/main.3a02d3f8.css",
+    "main.js": "/parkingCliente/static/js/main.54920dbc.js",
     "index.html": "/parkingCliente/index.html",
-    "main.c3e4631f.css.map": "/parkingCliente/static/css/main.c3e4631f.css.map",
-    "main.dcc7112d.js.map": "/parkingCliente/static/js/main.dcc7112d.js.map"
+    "main.3a02d3f8.css.map": "/parkingCliente/static/css/main.3a02d3f8.css.map",
+    "main.54920dbc.js.map": "/parkingCliente/static/js/main.54920dbc.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3e4631f.css",
-    "static/js/main.dcc7112d.js"
+    "static/css/main.3a02d3f8.css",
+    "static/js/main.54920dbc.js"
   ]
 }
