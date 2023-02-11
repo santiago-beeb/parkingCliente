@@ -3,13 +3,17 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
+import "../styles/styles.css";
 
 export default function Add() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const today = new Date(Date.now()).toLocaleDateString();
-  const hour = new Date(Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+  const hour = new Date(Date.now()).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   const [cars, setCars] = useState({
     placa: "",
     fecha: today,
@@ -50,6 +54,8 @@ export default function Add() {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Placas del vehiculo</Form.Label>
               <Form.Control
+                className="inputBuscar"
+                maxLength={6}
                 name="placa"
                 type="text"
                 placeholder="XXX000"

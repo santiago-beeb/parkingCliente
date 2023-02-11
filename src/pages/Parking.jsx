@@ -3,6 +3,7 @@ import axios from "axios";
 import Add from "../common/ModalAdd";
 import { Link } from "react-router-dom";
 import { CloseButton } from "react-bootstrap";
+import '../styles/styles.css'
 
 const Parking = () => {
   const [show, setShow] = useState(false);
@@ -57,48 +58,49 @@ const Parking = () => {
         <h1>Sistema para parqueadero</h1>
         <div className="containerInput">
           <input
+            maxLength={6}
             className="form-control inputBuscar"
             value={busqueda}
             placeholder="Búsqueda por placa del vehiculo"
             onChange={handleChange}
           />
           <br />
-        <Add show={show} setShow={setShow}></Add>
-        <table className="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Placa</th>
-              <th scope="col">Fecha</th>
-              <th scope="col">Hora</th>
-              <th>Salida</th>
-              <th>Eliminar</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {cars.map((cars) => (
-              <tr key={cars.id}>
-                <td> {cars.placa} </td>
-                <td> {cars.fecha} </td>
-                <td> {cars.hora} </td>
-                <td>
-                  <Link to={`/update/${cars.id}`}>
-                    <button type="button" className="btn btn-info">
-                      Salida
-                    </button>
-                  </Link>
-                </td>
-                <td>
-                  <CloseButton
-                    type="button"
-                    onClick={() => handleDelete(cars.id)}
-                  ></CloseButton>
-                </td>
+          <Add show={show} setShow={setShow}></Add>
+          <table className="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Placa</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th>Salida</th>
+                <th>Eliminar</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+
+            <tbody>
+              {cars.map((cars) => (
+                <tr key={cars.id}>
+                  <td> {cars.placa} </td>
+                  <td> {cars.fecha} </td>
+                  <td> {cars.hora} </td>
+                  <td>
+                    <Link to={`/update/${cars.id}`}>
+                      <button type="button" className="btn btn-info">
+                        Salida
+                      </button>
+                    </Link>
+                  </td>
+                  <td>
+                    <CloseButton
+                      type="button"
+                      onClick={() => handleDelete(cars.id)}
+                    ></CloseButton>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
