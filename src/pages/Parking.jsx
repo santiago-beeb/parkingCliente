@@ -3,13 +3,15 @@ import axios from "axios";
 import Add from "../common/ModalAdd";
 import { Link } from "react-router-dom";
 import { CloseButton } from "react-bootstrap";
-import '../styles/styles.css'
+import "../styles/styles.css";
 
 const Parking = () => {
   const [show, setShow] = useState(false);
   const [cars, setCars] = useState([]);
   const [tabla, setTabla] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+
+  console.log(tabla.length);
 
   useEffect(() => {
     const fectchAllCars = async () => {
@@ -64,43 +66,50 @@ const Parking = () => {
             placeholder="Búsqueda por placa del vehiculo"
             onChange={handleChange}
           />
-          <br />
-          <Add show={show} setShow={setShow}></Add>
-          <table className="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Placa</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Hora</th>
-                <th>Salida</th>
-                <th>Eliminar</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {cars.map((cars) => (
-                <tr key={cars.id}>
-                  <td> {cars.placa} </td>
-                  <td> {cars.fecha} </td>
-                  <td> {cars.hora} </td>
-                  <td>
-                    <Link to={`/update/${cars.id}`}>
-                      <button type="button" className="btn btn-info">
-                        Salida
-                      </button>
-                    </Link>
-                  </td>
-                  <td>
-                    <CloseButton
-                      type="button"
-                      onClick={() => handleDelete(cars.id)}
-                    ></CloseButton>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
+        <br />
+        <div>
+          <Add show={show} setShow={setShow}></Add>
+          <div>
+            <p className="text-end fs-4">
+              Limite <strong>{tabla.length}</strong> de 30
+            </p>
+          </div>
+        </div>
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Fecha Ingreso</th>
+              <th>Hora Ingreso</th>
+              <th>Dar Salida a vehiculo</th>
+              {/* <th>Eliminar</th> */}
+            </tr>
+          </thead>
+
+          <tbody>
+            {cars.map((cars) => (
+              <tr key={cars.id}>
+                <td> {cars.placa} </td>
+                <td> {cars.fecha} </td>
+                <td> {cars.hora} </td>
+                <td>
+                  <Link to={`/update/${cars.id}`}>
+                    <button type="button" className="btn btn-info">
+                      Salida de vehiculo
+                    </button>
+                  </Link>
+                </td>
+                {/* <td>
+                  <CloseButton
+                    type="button"
+                    onClick={() => handleDelete(cars.id)}
+                  ></CloseButton>
+                </td> */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

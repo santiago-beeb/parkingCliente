@@ -35,11 +35,11 @@ const Update = () => {
         html: `por un tiempo de ${diferencia} minutos`,
         icon: "success",
       });
-    },1000);
+    }, 1000);
   };
 
   useEffect(() => {
-    const fectchCar = async (id) => {
+    const fectchCar = async () => {
       try {
         const res = await axios.get(
           "http://localhost:8080/api/parking/" + carId
@@ -87,7 +87,9 @@ const Update = () => {
                 className="form-control"
                 disabled
               />
-              <label hidden className="form-label">Estado</label>
+              <label hidden className="form-label">
+                Estado
+              </label>
               <input
                 type="text"
                 name="estado"

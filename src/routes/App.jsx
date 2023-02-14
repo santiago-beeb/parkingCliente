@@ -11,7 +11,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route exact path="/" element={<Parking />} />
-          <Route exact path="/add" element={<Add />} />
+          {/* <Route exact path="/add" element={<Add />} /> */}
           <Route exact path="/update/:id" element={<Update />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
